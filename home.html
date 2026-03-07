@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tawilwind + Daisyui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home</title>
+    <style>
+        *{
+             font-family: "Outfit", sans-serif;
+        }
+    </style>
+  </head>
+  <body class="bg-[#F8FAFC]">
+    <!-- navigation bar -->
+    <div class="navbar bg-base-100 shadow-sm flex justify-between px-12">
+        <div class="flex justify-center items-center gap-2">
+            <img src="./assets/github-logo.png" height="36px" width="36px" alt="">
+            <p class="text-lg font-semibold">GitHub Issues Tracker</p>
+        </div>
+        <div class="flex gap-2">
+            <div class="flex items-center gap-2">
+                <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
+                <input type="text" placeholder="Search Issues..." class="input input-bordered w-24 md:w-auto" />
+            </div>
+            <button class="btn btn-primary">+ New Issue</button>
+        </div>
+    </div>
+
+    <!-- Tab button section -->
+    <div class="bg-white shadow rounded-lg flex gap-2 mt-12 py-6 pl-6 w-[1110px] mx-auto">
+        <button class="bg-[#4A00FF] border-1 border-[#E4E4E7] text-white px-8 py-2 rounded">All</button>
+        <button class="bg-white shadow border-1 border-[#E4E4E7] text-black px-8 py-2 rounded">Open</button>
+        <button class="bg-white shadow border-1 border-[#E4E4E7] text-black px-8 py-2 rounded">Closed</button>
+    </div>
+
+    <!-- Issue Heading -->
+     <div class="bg-white shadow rounded-lg flex gap-2 mt-4 py-6 pl-6 w-[1110px] mx-auto flex justify-between">
+        <div class="flex justify-center items-center gap-2">
+            <div class="bg-[#ECE4FF] p-3 rounded-full">
+                <img src="./assets/Aperture.png" alt="">
+            </div>
+            <div>
+                <h3 class="font-semibold text-xl">50 Issues</h3>
+                <p class="text-[#64748B]">Track and manage your project issues</p>
+            </div>
+        </div>
+
+        <div class="flex justify-center items-center gap-4 pr-6">
+            <div class="flex gap-2 justify-center items-center">
+                <div class="w-3 h-3 bg-[#00A96E] rounded-full"></div>
+                <p>Open</p>
+            </div>
+            <div class="flex gap-2 justify-center items-center">
+                <div class="w-3 h-3 bg-[#A855F7] rounded-full"></div>
+                <p>Close</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Issue Card -->
+     <div class="bg-white shadow rounded-lg flex gap-2 mt-4 py-6 pl-6 w-[1110px] mx-auto flex justify-between">
+        <!-- card 1 -->
+        <div class="w-80 bg-white shadow rounded p-6 border-t-4 border-[#00A96E]">
+            <div class="flex justify-between mb-4">
+                <img src="./assets/Open-Status.png" alt="">
+                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full px-6 py-1 border-none">High</div>
+            </div>
+            <div class="mb-4">
+                <h3 class="font-semibold text-xl">Fix navigation menu on mobile devices</h3>
+                <p class="text-[#64748B] text-sm">The navigation menu doesn't collapse properly on mobile devices...</p>
+            </div>
+            <div class="gap-2 mb-4">
+                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i> High</div>
+                <div class="badge badge-soft bg-[#FFF8DB] text-[#D97706] rounded-full border border-[#FDE68A]"><i class="fa-solid fa-life-ring"></i> High</div>
+            </div>
+            <hr class="text-[#E4E4E7]">
+            <div class="text-[#64748B] mt-4">
+                <p>#1 by john_doe</p>
+                <p>1/15/2024</p>
+            </div>
+        </div>
+     </div>
+  </body>
+</html>

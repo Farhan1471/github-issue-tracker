@@ -10,17 +10,14 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Login</title>
-    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
     <style>
         *{
              font-family: "Outfit", sans-serif;
         }
     </style>
   </head>
-  <body class="flex items-center justify-center min-h-screen">
+  <body class="flex items-center justify-center min-h-screen bg-[#F8FAFC]">
     <!-- card div -->
     <div class="card w-full shadow max-w-sm bg-white">
         <div class="mx-auto pt-8">
@@ -29,7 +26,7 @@
             </div>
             <div class="text-center pt-6">
                 <h3 class="text-xl font-semibold">GitHub Issues Tracker</h3>
-                <p class="text-[#64748B]">Sign in to manage your issues</p>
+                <p class="text-[#64748B] text-sm">Sign in to manage your issues</p>
             </div>
         </div>
 
@@ -43,14 +40,14 @@
                     <label class="label text-neutral font-semibold">Password</label>
                     <input id="input-password" type="password" class="input rounded-lg bg-white" placeholder="Enter Password" />
                     <p class="text-[#4A00FF] mb-2">Default: admin123</p>
-                    <button id="login-btn" class="btn btn-primary rounded-lg">Sign In</button>
+                    <button id="signin-btn" class="btn btn-primary rounded-lg">Sign In</button>
                     <div class="flex items-center my-2">
                         <hr class="w-full text-[#E4E4E7]">
                         <span class="px-2">OR</span>
                         <hr class="w-full text-[#E4E4E7]">
                     </div>
                     <p class="text-center text-[#64748B]">Demo Credentials:</p>
-                    <div class="bg-[#F8FAFC] py-4 w-full text-center">
+                    <div class="bg-[#F8FAFC] py-4 w-full text-center text-sm">
                         <p><strong>Username:</strong> admin</p>
                         <p><strong>Password:</strong> admin123</p>
                     </div>
