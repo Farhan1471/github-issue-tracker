@@ -158,12 +158,18 @@ async function OpenIssueDetailsModal(issueId){
         card.className = `w-[50%] bg-white shadow rounded p-4 mb-2`;
         card.innerHTML = `
             <h3 class="text-2xl font-semibold mb-2">${issueDetails.title}</h3>
-            <div class="flex items-center gap-2">
+            <div class="flex flex-col items-center gap-2 sm:flex-row">
                 <div class="badge badge-soft rounded-full px-6 py-1 border-none uppercase text-xs font-semibold bg-[#00A96E] text-white">${issueDetails.status}</div>
-                <div class="w-1.5 h-1.5 bg-[#64748B] rounded-full"></div>
-                <p class="text-[#64748B]">Opened by ${issueDetails.author}</p>
-                <div class="w-1.5 h-1.5 bg-[#64748B] rounded-full"></div>
-                <p class="text-[#64748B]">${issueDetails.createdAt.slice(0, 10)}</p>
+                <div class="flex flex-col items-center gap-2 sm:flex-row">
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-[#64748B] rounded-full"></div>
+                        <p class="text-[#64748B]">Opened by ${issueDetails.author}</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-1.5 h-1.5 bg-[#64748B] rounded-full"></div>
+                        <p class="text-[#64748B]">${issueDetails.createdAt.slice(0, 10)}</p>
+                    </div>
+                </div>
             </div>
 
             <div class="flex flex-wrap gap-2 mb-4 mt-4">
@@ -173,7 +179,7 @@ async function OpenIssueDetailsModal(issueId){
             </div>
 
             <p class="mb-4 text-[#64748B]">${issueDetails.description}</p>
-            <div class="flex gap-72 items-center bg-[#F8FAFC] p-6 rounded">
+            <div class="grid grid-cols-2 bg-[#F8FAFC] p-6 rounded">
                 <div class="flex flex-col">
                     <p class="text-[#64748B]">Assignee: </p>
                     <p><strong>${issueDetails.author}</strong></p>
