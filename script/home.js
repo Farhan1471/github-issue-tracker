@@ -159,8 +159,9 @@ async function OpenIssueDetailsModal(issueId){
             </div>
 
             <div class="flex flex-wrap gap-2 mb-4 mt-4">
-                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i><p class="uppercase text-xs">${issueDetails.labels[0]}</p></div>
-                <div class="badge badge-soft bg-[#FFF8DB] text-[#D97706] rounded-full border border-[#FDE68A]"><i class="fa-solid fa-life-ring"></i><p class="uppercase text-xs">${issueDetails.labels[1]}</p></div>
+            ${issueDetails.labels.map(labels => `
+                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i><p class="uppercase text-xs">${labels}</p></div>
+            `).join("")}
             </div>
 
             <p class="mb-4">${issueDetails.description}</p>
