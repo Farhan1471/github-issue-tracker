@@ -21,35 +21,36 @@
   </head>
   <body class="bg-[#F8FAFC]">
     <!-- navigation bar -->
-    <div class="navbar bg-base-100 shadow-sm flex justify-between px-12">
+    <div class="navbar bg-base-100 shadow-sm flex flex-col sm:flex-row px-2 gap-3 py-2 justify-between px-12">
         <div class="flex justify-center items-center gap-2">
             <img src="./assets/github-logo.png" height="36px" width="36px" alt="">
             <p class="text-lg font-semibold">GitHub Issues Tracker</p>
         </div>
         <div class="flex gap-2">
-            <div class="flex items-center gap-2">
-                <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
-                <input type="text" placeholder="Search Issues..." class="input input-bordered w-24 md:w-auto" />
-            </div>
+            <label class="input input-bordered flex items-center gap-2 w-64">
+                <i class="fa-solid fa-magnifying-glass text-gray-400"></i>
+                <input id="searchInput" type="text" class="grow" placeholder="Search Issues..." />
+            </label>
+            <button id="searchBtn" class="btn btn-primary">Search</button>
             <button class="btn btn-primary">+ New Issue</button>
         </div>
     </div>
 
     <!-- Tab button section -->
-    <div class="bg-white shadow rounded-lg flex gap-2 mt-12 py-6 pl-6 w-[1110px] mx-auto">
-        <button class="bg-[#4A00FF] border-1 border-[#E4E4E7] text-white px-8 py-2 rounded">All</button>
-        <button class="bg-white shadow border-1 border-[#E4E4E7] text-black px-8 py-2 rounded">Open</button>
-        <button class="bg-white shadow border-1 border-[#E4E4E7] text-black px-8 py-2 rounded">Closed</button>
+    <div id="tab-container" class="bg-white shadow rounded-lg flex gap-2 mt-12 py-6 pl-6 max-w-[1110px] w-full mx-auto">
+        <button id="all-issues" class="bg-[#4A00FF] border-1 border-[#E4E4E7] text-white px-8 py-2 rounded">All</button>
+        <button id="openIssues" class="bg-white shadow border-1 border-[#E4E4E7] text-black px-8 py-2 rounded">Open</button>
+        <button id="closedIssues" class="bg-white shadow border-1 border-[#E4E4E7] text-black px-8 py-2 rounded">Closed</button>
     </div>
 
     <!-- Issue Heading -->
-     <div class="bg-white shadow rounded-lg flex gap-2 mt-4 py-6 pl-6 w-[1110px] mx-auto flex justify-between">
+     <div class="bg-white shadow rounded-lg flex flex-col sm:flex-row gap-2 mt-4 py-6 pl-6 max-w-[1110px] w-full mx-auto justify-between items-center">
         <div class="flex justify-center items-center gap-2">
             <div class="bg-[#ECE4FF] p-3 rounded-full">
                 <img src="./assets/Aperture.png" alt="">
             </div>
             <div>
-                <h3 class="font-semibold text-xl">50 Issues</h3>
+                <h3 id="numberOfIssue" class="font-semibold text-xl"></h3>
                 <p class="text-[#64748B]">Track and manage your project issues</p>
             </div>
         </div>
@@ -67,27 +68,23 @@
     </div>
 
     <!-- Issue Card -->
-     <div class="bg-white shadow rounded-lg flex gap-2 mt-4 py-6 pl-6 w-[1110px] mx-auto flex justify-between">
-        <!-- card 1 -->
-        <div class="w-80 bg-white shadow rounded p-6 border-t-4 border-[#00A96E]">
-            <div class="flex justify-between mb-4">
-                <img src="./assets/Open-Status.png" alt="">
-                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full px-6 py-1 border-none">High</div>
-            </div>
-            <div class="mb-4">
-                <h3 class="font-semibold text-xl">Fix navigation menu on mobile devices</h3>
-                <p class="text-[#64748B] text-sm">The navigation menu doesn't collapse properly on mobile devices...</p>
-            </div>
-            <div class="gap-2 mb-4">
-                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i> High</div>
-                <div class="badge badge-soft bg-[#FFF8DB] text-[#D97706] rounded-full border border-[#FDE68A]"><i class="fa-solid fa-life-ring"></i> High</div>
-            </div>
-            <hr class="text-[#E4E4E7]">
-            <div class="text-[#64748B] mt-4">
-                <p>#1 by john_doe</p>
-                <p>1/15/2024</p>
-            </div>
-        </div>
+     <div id="issueContainer" class="bg-white grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 shadow rounded-lg flex max-w-[1110px] w-full gap-1 mt-4 py-6 px-5 mx-auto justify-center">
+        <!-- cards will append here -->
      </div>
+
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="h-[60vh] justify-center items-center hidden">
+        <span class="loading loading-spinner loading-lg"></span>
+    </div>
+
+    <!-- Modal -->
+    <!-- Open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="issue_details_modal.showModal()">open modal</button> -->
+    <dialog id="issue_details_modal" class="modal">
+        
+    </dialog>
+
+     <script src="./script/home.js"></script>
   </body>
 </html>
