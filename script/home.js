@@ -28,6 +28,15 @@ async function loadData(){
     displayCards(allIssues);
 }
 
+// labels color
+const labelColors = {
+    "bug": "bg-[#FEECEC] text-[#EF4444] border-[#FECACA]",
+    "enhancement": "bg-[#DEFCE8] text-[#00A96E] border-[#BBF7D0]",
+    "help wanted": "bg-[#FFF8DB] text-[#D97706] border-[#FDE68A]",
+    "good first issue": "bg-blue-100 text-blue-600 border-blue-300",
+    "documentation": "bg-pink-100 text-pink-600 border-pink-300"
+}
+
 async function displayCards(issues){
     issueContainer.innerHTML = "";
     const totalIssue = issues.length;
@@ -58,7 +67,6 @@ async function displayCards(issues){
             priorityClass = "bg-[#EEEFF2] text-[#9CA3AF]";
         }
 
-
         const card = document.createElement("div");
         card.className = `w-[95%] mx-auto bg-white shadow rounded p-4 mb-2 border-t-4 ${borderColor}`;
         card.innerHTML = `
@@ -68,15 +76,15 @@ async function displayCards(issues){
             </div>
 
             <div class="mb-4">
-                <h3 class="font-semibold text-md cursor-pointer" onclick="OpenIssueDetailsModal(${issue.id})">${issue.title}</h3>
+                <h3 class="font-semibold text-md h-14 cursor-pointer" onclick="OpenIssueDetailsModal(${issue.id})">${issue.title}</h3>
                 <p class="text-[#64748B] text-sm line-clamp-2">${issue.description}</p>
             </div>
 
 
 
             <div class="flex flex-wrap gap-2 mb-4">
-            ${issue.labels.map(labels => `
-                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i><p class="uppercase text-xs">${labels}</p></div>
+            ${issue.labels.map(label => `
+                <div class="badge badge-soft ${labelColors[label]} rounded-full border px-2 py-0.5"><p class="uppercase text-[10px]">${label}</p></div>
             `).join("")}
             </div>
 
@@ -147,31 +155,31 @@ async function OpenIssueDetailsModal(issueId){
     console.log(issueDetails, "data");
 
     const card = document.createElement("div");
-        card.className = `w-[50] bg-white shadow rounded p-4 mb-2`;
+        card.className = `w-[50%] bg-white shadow rounded p-4 mb-2`;
         card.innerHTML = `
-            <h3 class="text-lg font-bold mb-2">${issueDetails.title}</h3>
+            <h3 class="text-2xl font-semibold mb-2">${issueDetails.title}</h3>
             <div class="flex items-center gap-2">
                 <div class="badge badge-soft rounded-full px-6 py-1 border-none uppercase text-xs font-semibold bg-[#00A96E] text-white">${issueDetails.status}</div>
                 <div class="w-1.5 h-1.5 bg-[#64748B] rounded-full"></div>
-                <p>Opened by ${issueDetails.author}</p>
+                <p class="text-[#64748B]">Opened by ${issueDetails.author}</p>
                 <div class="w-1.5 h-1.5 bg-[#64748B] rounded-full"></div>
-                <p>${issueDetails.createdAt.slice(0, 10)}</p>
+                <p class="text-[#64748B]">${issueDetails.createdAt.slice(0, 10)}</p>
             </div>
 
             <div class="flex flex-wrap gap-2 mb-4 mt-4">
             ${issueDetails.labels.map(labels => `
-                <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><i class="fa-solid fa-bug"></i><p class="uppercase text-xs">${labels}</p></div>
+                <div class="badge badge-soft ${labelColors[labels]} rounded-full border"><p class="uppercase text-xs">${labels}</p></div>
             `).join("")}
             </div>
 
-            <p class="mb-4">${issueDetails.description}</p>
-            <div class="flex justify-between bg-[#F8FAFC] p-3 rounded">
+            <p class="mb-4 text-[#64748B]">${issueDetails.description}</p>
+            <div class="flex gap-72 items-center bg-[#F8FAFC] p-6 rounded">
                 <div class="flex flex-col">
-                    <p>Assignee: </p>
+                    <p class="text-[#64748B]">Assignee: </p>
                     <p><strong>${issueDetails.author}</strong></p>
                 </div>
-                <div class="flex flex-col">
-                    <p>Priority:</p>
+                <div class="flex flex-col items-center">
+                    <p class="text-[#64748B]">Priority:</p>
                     <div class="badge badge-soft bg-[#FEECEC] text-[#EF4444] rounded-full border border-[#FECACA]"><p class="uppercase text-xs">${issueDetails.priority}</p></div>
                 </div>
             </div>
@@ -188,12 +196,15 @@ async function OpenIssueDetailsModal(issueId){
     issueDetailsModal.showModal();
 }
 
-document.getElementById("searchBtn").addEventListener("click", function(){
+document.getElementById("searchBtn").addEventListener("click", async function(){
     const searchText = searchInput.value.toLowerCase();
     console.log(searchText)
 
-    const matchedIssues = allIssues.filter(issue => issue.title.toLowerCase().includes(searchText));
-    displayCards(matchedIssues);
+    const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`);
+    const data = await response.json();
+
+    // const matchedIssues = allIssues.filter(issue => issue.title.toLowerCase().includes(searchText));
+    displayCards(data.data);
 });
 
 
