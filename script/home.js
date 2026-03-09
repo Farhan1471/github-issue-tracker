@@ -148,7 +148,6 @@ closedTab.addEventListener('click', () => {
 
 
 async function OpenIssueDetailsModal(issueId){
-    // console.log(issueId, "issueId");
     const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issue/${issueId}`);
     const data = await response.json();
     const issueDetails = data.data;
@@ -209,7 +208,6 @@ document.getElementById("searchBtn").addEventListener("click", async function(){
     const response = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchText}`);
     const data = await response.json();
 
-    // const matchedIssues = allIssues.filter(issue => issue.title.toLowerCase().includes(searchText));
     displayCards(data.data);
 });
 
