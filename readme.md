@@ -4,14 +4,6 @@ GitHub Issue Tracker is a simple web app that helps you see and manage GitHub is
 
 ---
 
-## 🖼️ Screenshot
-
-![GitHub Issue Tracker Screenshot](https://via.placeholder.com/1000x500?text=GitHub+Issue+Tracker+Preview)
-
-> Replace this with your real project screenshot.
-
----
-
 ## ⚙️ Technologies Used
 
 - HTML  
