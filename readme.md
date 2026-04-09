@@ -1,41 +1,72 @@
-1️⃣ What is the difference between var, let, and const?
-# var ---> when we declared using var, we can change or re-declare that value. It works inside the whole function.
-var number = 13;
-var number = 17;
+# 📝 GitHub Issue Tracker
 
+GitHub Issue Tracker is a simple web app that helps you see and manage GitHub issues easily. You can open the app in your browser and check how issues work, all in one place.
 
-# let ---> when we declare using let, we can change the value but we cannot re-declare that. It works only inside the block.
-let number = 13;
-number = 15;
+---
 
-# const ---> once we declare using const, we cannot change or re-declare that value. It works only inside the block.
+## 🖼️ Screenshot
 
+![GitHub Issue Tracker Screenshot](https://via.placeholder.com/1000x500?text=GitHub+Issue+Tracker+Preview)
 
-2️⃣ What is the spread operator (...)?
-# Spread operator is a way to expand the elements from an array or object.
-const number = [1, 2, 3];
-const number2 = [..., 4, 5];
-console.log(number2);
+> Replace this with your real project screenshot.
 
-output: [1, 2, 3, 4, 5]
+---
 
+## ⚙️ Technologies Used
 
-3️⃣ What is the difference between map(), filter(), and forEach()?
-# map() ---> It is used to transform each item in an array. It returns a new array with updated value.
-# filter() ---> It is used to match/select specific items froma an array. It returns a new array with matched items.
-# forEach() ---> It is used execute same code on every element of an array. It does not return any array.
+- HTML  
+- CSS  
+- JavaScript  
 
+> No extra libraries or frameworks needed — just plain frontend code.
 
-4️⃣ What is an arrow function?
-# Arrow function is shorter syntax of regular function. In arrow function, we use arrow sign (=>).
-const sum = (number1, number2)=>{
-    return number1 + number2;
-}
+---
 
+## ✨ Main Features
 
-5️⃣ What are template literals?
-# Template literals are strings that allow us to write in multi-line text, embed varible inside the string. We need to use backticks(``) to write template literals.
-const country = "Bangladesh"
-console.log(`We love ${country}`);
+- 🧾 See GitHub issues in a simple list  
+- 💻 Learn basic DOM and JavaScript interaction  
+- 🗂️ Can be extended later to connect with GitHub API  
 
-output: We love Bangladesh
+---
+
+## 📦 Dependencies
+
+- No extra packages or dependencies  
+- Works in any modern browser  
+
+---
+
+## 🛠️ How to Run Locally
+
+1. **Clone the project**
+```
+git clone https://github.com/Farhan1471/github-issue-tracker.git
+```
+
+2. **Go to the folder**
+```
+cd github-issue-tracker
+```
+
+3. **Open the project**
+- Open `home.html` or `index.html` in your browser (Chrome, Edge, Firefox, etc.)
+
+4. **Start using it**
+- You can now see the app and explore the code.
+
+---
+
+## 🔗 Links
+
+- 💻 GitHub Repository: https://farhan1471.github.io/github-issue-tracker
+- 🌐 Live Demo: [GitHub Pages Demo](https://farhan1471.github.io/github-issue-tracker/home.html)  
+
+---
+
+## 👨‍💻 Author
+
+**Farhan Islam**  
+📧 farhanislam395@gmail.com  
+
+---
