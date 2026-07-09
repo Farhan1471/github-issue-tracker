@@ -10,8 +10,6 @@ GitHub Issue Tracker is a simple web app that helps you see and manage GitHub is
 - CSS  
 - JavaScript  
 
-> No extra libraries or frameworks needed — just plain frontend code.
-
 ---
 
 ## ✨ Main Features
